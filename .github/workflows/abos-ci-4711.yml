@@ -1,0 +1,14 @@
+name: abos-ci-4711
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sh ci-4711.sh
+        env:
+          CANARY: ${{ secrets.ABOS_CANARY_4711 }}
